@@ -1,0 +1,212 @@
+/* ====== VARIÁVEIS DE TEMA DARK ====== */
+:root {
+    --bg-main: #0d1117;
+    --bg-card: #161b22;
+    --bg-hover: #1f6feb33;
+    --accent: #1f6feb;
+    --accent-light: #58a6ff;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --border: #30363d;
+    --btn-number: #21262d;
+    --btn-operator: #1f6feb;
+    --btn-operator-hover: #388bfd;
+    --btn-equal: #238636;
+    --btn-equal-hover: #2ea043;
+    --btn-clear: #da3633;
+    --btn-clear-hover: #f85149;
+    --radius: 10px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --transition: all 0.2s ease;
+}
+
+/* ====== ESTILO BASE ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-main);
+    padding: 20px;
+}
+
+/* ====== CALCULADORA ====== */
+.calculadora {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    width: 320px;
+    max-width: 100%;
+}
+
+/* ====== DISPLAY ====== */
+.display {
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.display-anterior {
+    font-size: 14px;
+    color: var(--text-dim);
+    height: 20px;
+    margin-bottom: 8px;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.display-atual {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: right;
+    word-wrap: break-word;
+    min-height: 45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ====== BOTÕES ====== */
+.botoes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--btn-number);
+    color: var(--text);
+    user-select: none;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(31, 111, 235, 0.3);
+    border-color: var(--accent);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(31, 111, 235, 0.2);
+}
+
+/* ====== BOTÃO OPERADOR ====== */
+.operador {
+    background: var(--btn-operator);
+    color: white;
+    border-color: var(--btn-operator);
+}
+
+.operador:hover {
+    background: var(--btn-operator-hover);
+    border-color: var(--btn-operator-hover);
+}
+
+/* ====== BOTÃO IGUAL ====== */
+.igual {
+    background: var(--btn-equal);
+    color: white;
+    grid-column: span 2;
+    border-color: var(--btn-equal);
+}
+
+.igual:hover {
+    background: var(--btn-equal-hover);
+    border-color: var(--btn-equal-hover);
+}
+
+/* ====== BOTÃO LIMPAR ====== */
+.limpar {
+    background: var(--btn-clear);
+    color: white;
+    border-color: var(--btn-clear);
+}
+
+.limpar:hover {
+    background: var(--btn-clear-hover);
+    border-color: var(--btn-clear-hover);
+}
+
+/* ====== BOTÃO FUNÇÃO ====== */
+.funcao {
+    background: var(--bg-card);
+    color: var(--accent-light);
+    border-color: var(--border);
+}
+
+.funcao:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent);
+}
+
+/* ====== BOTÃO ZERO (LARGO) ====== */
+.zero {
+    grid-column: span 2;
+}
+
+/* ====== SCROLLBAR PERSONALIZADA ====== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* ====== RESPONSIVO ====== */
+@media (max-width: 480px) {
+    .calculadora {
+        width: 100%;
+        padding: 16px;
+    }
+
+    button {
+        padding: 16px;
+        font-size: 18px;
+    }
+
+    .display-atual {
+        font-size: 28px;
+    }
+
+    .display-anterior {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    button {
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    .display-atual {
+        font-size: 24px;
+    }
+}
